@@ -1,5 +1,4 @@
 'use strict';
-require('./config/init');
 
 // Init
 const express = require('express');

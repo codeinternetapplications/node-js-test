@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "d27ecbc8-9633-4534-a110-8a8df52c0471",
+		"name": "CODE App Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{shopify_domain}}/admin/products.json",
+							"protocol": "https",
+							"host": [
+								"{{shopify_domain}}"
+							],
+							"path": [
+								"admin",
+								"products.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a product",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": {\n    \"id\": 1637196890164,\n    \"title\": \"GCN Pro Womens Shorts\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://{{shopify_domain}}/admin/products/1637196890164.json",
+							"protocol": "https",
+							"host": [
+								"{{shopify_domain}}"
+							],
+							"path": [
+								"admin",
+								"products",
+								"1637196890164.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a products Inventory level",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location_id\": 15413641268,\n  \"inventory_item_id\": 15062249340980,\n  \"available\": 12\n}"
+						},
+						"url": {
+							"raw": "https://{{shopify_domain}}/admin/inventory_levels/set.json",
+							"protocol": "https",
+							"host": [
+								"{{shopify_domain}}"
+							],
+							"path": [
+								"admin",
+								"inventory_levels",
+								"set.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test webhook request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Shopify-Topic",
+						"value": "inventory_levels/update",
+						"type": "text"
+					},
+					{
+						"key": "X-Shopify-Hmac-Sha256",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-Shopify-Shop-Domain",
+						"value": "{{shopify_domain}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"inventory_item_id\": 15062249340980,\n  \"location_id\": 15413641268,\n  \"available\": 6,\n  \"updated_at\": \"2019-03-06T14:33:59-05:00\",\n  \"admin_graphql_api_id\": \"gid:\\/\\/shopify\\/InventoryLevel\\/15413641268?inventory_item_id=15062249340980\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/your-endpoint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"your-endpoint"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b5b09b17-b325-474a-a1ca-38fc52a7d22a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0b543f03-3d42-4f60-9281-d8df820af138",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0e0acf03-2004-4843-bc5e-31397711e0c7",
+			"key": "api_key",
+			"value": "806171caf4b46e8b0ca40b593c988fad",
+			"type": "string"
+		},
+		{
+			"id": "57c27beb-49ec-4a5c-b64e-2c3dc85893e4",
+			"key": "password",
+			"value": "fc6965281ea40fee68d78daffa0af648",
+			"type": "string"
+		},
+		{
+			"id": "f2e0015f-d854-444c-a6af-1089e4e599b7",
+			"key": "shopify_domain",
+			"value": "code-job-assignments.myshopify.com",
+			"type": "string"
+		}
+	]
+}

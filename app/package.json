@@ -5,8 +5,7 @@
   "private": true,
   "license": "Apache-2.0",
   "author": "Google Inc.",
-  "repository": {
-  },
+  "repository": {},
   "engines": {
     "node": ">=8.0.0"
   },
@@ -22,6 +21,5 @@
     "express": "^4.16.3",
     "memory-cache": "^0.2.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
