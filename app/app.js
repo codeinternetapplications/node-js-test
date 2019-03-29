@@ -1,8 +1,12 @@
 'use strict';
+require('./config');
 
 // Init
 const express = require('express');
 const app = express();
+
+// setup routes
+app.use(require('./routes'));
 
 // index
 app.get('/', function (req, res) { 
@@ -13,7 +17,7 @@ app.get('/', function (req, res) {
 });
 
 // catch all for 404
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res
     .status(404)
     .send('404 - Not found')

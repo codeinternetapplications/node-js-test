@@ -57,6 +57,54 @@
 					"response": []
 				},
 				{
+					"name": "Get a product variant",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{shopify_domain}}/admin/products.json",
+							"protocol": "https",
+							"host": [
+								"{{shopify_domain}}"
+							],
+							"path": [
+								"admin",
+								"products.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Update a product",
 					"request": {
 						"auth": {
@@ -202,16 +250,41 @@
 					"raw": "{\n  \"inventory_item_id\": 15062249340980,\n  \"location_id\": 15413641268,\n  \"available\": 6,\n  \"updated_at\": \"2019-03-06T14:33:59-05:00\",\n  \"admin_graphql_api_id\": \"gid:\\/\\/shopify\\/InventoryLevel\\/15413641268?inventory_item_id=15062249340980\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/your-endpoint",
+					"raw": "http://localhost:8080/webhook",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"your-endpoint"
+						"webhook"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sample Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/samples/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"samples",
+						"products"
+					]
+				},
+				"description": "\t"
 			},
 			"response": []
 		}
@@ -240,19 +313,19 @@
 	],
 	"variable": [
 		{
-			"id": "0e0acf03-2004-4843-bc5e-31397711e0c7",
+			"id": "4d029ec2-25b2-4764-b627-82b5620b46b2",
 			"key": "api_key",
 			"value": "806171caf4b46e8b0ca40b593c988fad",
 			"type": "string"
 		},
 		{
-			"id": "57c27beb-49ec-4a5c-b64e-2c3dc85893e4",
+			"id": "ef602b62-5dc1-40f4-a799-8c7f33abc0e4",
 			"key": "password",
 			"value": "fc6965281ea40fee68d78daffa0af648",
 			"type": "string"
 		},
 		{
-			"id": "f2e0015f-d854-444c-a6af-1089e4e599b7",
+			"id": "265bf3f1-88b8-43b5-a8a1-e7deae832954",
 			"key": "shopify_domain",
 			"value": "code-job-assignments.myshopify.com",
 			"type": "string"
