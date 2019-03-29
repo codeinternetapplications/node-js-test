@@ -36,20 +36,5 @@ For sub assignment 2:
 * For documentation how to verify a webhook, please refer to: https://help.shopify.com/en/api/getting-started/webhooks#verifying-webhooks 
 * When using the `npm run watch` command you can use hot reloading on each save. Make sure you install the nodemon package globally
 
-## Credentials
-```
-Shop:           code-job-assignments.myshopify.com
-API Key:        806171caf4b46e8b0ca40b593c988fad
-Password:       fc6965281ea40fee68d78daffa0af648
-Shared secret:  2967e226d75be2864ea3a2ed9605b75f
-```
-
-You can also login into the Shopify Admin:
-```
-Admin URL:      https://code-job-assignments.myshopify.com/admin
-Username:       assignments@code.nl
-Password:       c0de!ntern3t
-```
-
 ## Support / Questions
 Please refer to [Patrick Watzeels](mailto:patrick@code.nl) if you have questions on the assignment.
